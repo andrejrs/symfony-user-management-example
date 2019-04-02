@@ -77,11 +77,11 @@ Password: test
 Version 1.0.0 - The first commit of application
 
 ## Screenshots
-![alt tag](https://raw.githubusercontent.com/andrejrs/xml-api-laravel/master/screenshots/1.png)
-![alt tag](https://raw.githubusercontent.com/andrejrs/xml-api-laravel/master/screenshots/2.png)
-![alt tag](https://raw.githubusercontent.com/andrejrs/xml-api-laravel/master/screenshots/3.png)
-![alt tag](https://raw.githubusercontent.com/andrejrs/xml-api-laravel/master/screenshots/4.png)
-![alt tag](https://raw.githubusercontent.com/andrejrs/xml-api-laravel/master/screenshots/5.png)
+![alt tag](https://raw.githubusercontent.com/andrejrs/symfony-user-management-example/master/screenshots/1.png)
+![alt tag](https://raw.githubusercontent.com/andrejrs/symfony-user-management-example/master/screenshots/2.png)
+![alt tag](https://raw.githubusercontent.com/andrejrs/symfony-user-management-example/master/screenshots/3.png)
+![alt tag](https://raw.githubusercontent.com/andrejrs/symfony-user-management-example/master/screenshots/4.png)
+![alt tag](https://raw.githubusercontent.com/andrejrs/symfony-user-management-example/master/screenshots/5.png)
 
 ## Authors
 * **Andrej** - *Initial work* - [andrejrs](github.com/andrejrs)
