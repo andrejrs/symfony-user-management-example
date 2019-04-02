@@ -1,0 +1,91 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block body %}
+<!-- Breadcrumbs-->
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+    <a href="#">Dashboard</a>
+    </li>
+    <li class="breadcrumb-item active">Welcome {{username}}</li>
+</ol>
+
+<!-- Icon Cards-->
+<div class="row">
+    <div class="col-xl-3 col-sm-6 mb-3">
+    <div class="card text-white bg-primary o-hidden h-100">
+        <div class="card-body">
+        <div class="card-body-icon">
+            <i class="fas fa-fw fa-comments"></i>
+        </div>
+        <div class="mr-5">26 Etiam augue mauris!</div>
+        </div>
+        <a class="card-footer text-white clearfix small z-1" href="#">
+        <span class="float-left">View Details</span>
+        <span class="float-right">
+            <i class="fas fa-angle-right"></i>
+        </span>
+        </a>
+    </div>
+    </div>
+    <div class="col-xl-3 col-sm-6 mb-3">
+    <div class="card text-white bg-warning o-hidden h-100">
+        <div class="card-body">
+        <div class="card-body-icon">
+            <i class="fas fa-fw fa-list"></i>
+        </div>
+        <div class="mr-5">11 Nulla non nisl non purus dapibus congue!</div>
+        </div>
+        <a class="card-footer text-white clearfix small z-1" href="#">
+        <span class="float-left">View Details</span>
+        <span class="float-right">
+            <i class="fas fa-angle-right"></i>
+        </span>
+        </a>
+    </div>
+    </div>
+    <div class="col-xl-3 col-sm-6 mb-3">
+    <div class="card text-white bg-success o-hidden h-100">
+        <div class="card-body">
+        <div class="card-body-icon">
+            <i class="fas fa-fw fa-shopping-cart"></i>
+        </div>
+        <div class="mr-5">123 Fusce nisi velit!</div>
+        </div>
+        <a class="card-footer text-white clearfix small z-1" href="#">
+        <span class="float-left">View Details</span>
+        <span class="float-right">
+            <i class="fas fa-angle-right"></i>
+        </span>
+        </a>
+    </div>
+    </div>
+    <div class="col-xl-3 col-sm-6 mb-3">
+    <div class="card text-white bg-danger o-hidden h-100">
+        <div class="card-body">
+        <div class="card-body-icon">
+            <i class="fas fa-fw fa-life-ring"></i>
+        </div>
+        <div class="mr-5">13 Nulla efficitur!</div>
+        </div>
+        <a class="card-footer text-white clearfix small z-1" href="#">
+        <span class="float-left">View Details</span>
+        <span class="float-right">
+            <i class="fas fa-angle-right"></i>
+        </span>
+        </a>
+    </div>
+    </div>
+</div>
+
+
+<div class="card mb-3">
+    <div class="card-header">
+    Etiam nec scelerisque justo</div>
+    <div class="card-body">
+    <p>Etiam augue mauris, eleifend vel finibus et, mollis eu ex. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla cursus, eros et faucibus tincidunt, arcu velit elementum nisi, eu scelerisque augue turpis vitae quam. Fusce ut ornare risus, vel malesuada lorem. Quisque sit amet pharetra neque. Fusce eleifend sagittis nulla, eget pellentesque lorem condimentum et. Sed id suscipit lorem. Vestibulum lobortis erat ac quam lobortis venenatis. Curabitur risus ligula, fringilla vitae iaculis eu, ornare in nisl. Duis at tincidunt nibh. Suspendisse tellus velit, malesuada in ultrices quis, elementum vel orci. Donec sodales tristique dolor nec dictum. Sed ut risus pretium purus luctus lobortis interdum nec lorem. Etiam efficitur arcu ut ultricies dignissim. Mauris sed hendrerit lacus. </p>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,5 @@
+<form class="float-right mr-1"  method="post" action="{{ path('user_group_delete', {'id': user_group.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ user_group.id) }}">
+    <button class="btn  btn-danger"><i class="far fa-trash-alt"></i></button>
+</form>

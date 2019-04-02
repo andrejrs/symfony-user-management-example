@@ -1,0 +1,8 @@
+# framework:
+#     router:
+#         strict_requirements: ~
+#         utf8: true
+# users:
+#     type:     rest
+#     host:     hostname.example.com
+#     resource: Acme\HelloBundle\Controller\UsersController

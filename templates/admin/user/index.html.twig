@@ -1,0 +1,64 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Users{% endblock %}
+
+{% block body %}
+
+    <!-- Breadcrumbs-->
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+        <a href="#">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">Users</li>
+    </ol>
+
+    <!-- DataTables Example -->
+    <div class="card mb-3">
+        <div class="card-header">
+            <div class="row">
+                <div class="col">
+                    <i class="fas fa-users"></i> Users
+                </div>
+                <div class="col">
+                    <a class="btn btn-primary btn-sm float-right ml-3" href="{{ path('user_new') }}">Create new</a>
+                    <a class="btn btn-primary btn-sm float-right ml-3" onclick="document.getElementById('filter-form').submit();" href="javascript:void()">Filter</a>
+                    <form id="filter-form" class="float-right" action="" method="GET">
+                        <input class="form-control form-control-sm" type="text" name="email" value="{{emailFilter}}" placeholder="User E-mail"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>E-mail</th>
+                            <th>Roles</th>
+                            <th>actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for user in users %}
+                        <tr>
+                            <td>{{ user.id }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>{{ user.roles ? user.roles|join(', ') : '' }}</td>
+                            <td>
+                                <a class="btn btn-info float-right" href="{{ path('user_edit', {'id': user.id}) }}"><i class="fas fa-pencil-alt"></i></a>
+                                {{ include('admin/user/_delete_form.html.twig') }}
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="5">no records found</td>
+                        </tr>
+                     {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    <div class="card-footer small text-muted">{{ knp_pagination_render(users) }}</div>
+</div>
+{% endblock %}

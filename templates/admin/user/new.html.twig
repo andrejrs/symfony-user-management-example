@@ -1,0 +1,18 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}New User{% endblock %}
+
+{% block body %}
+    <h1>Create new User</h1>
+
+    {{ include('admin/user/_form.html.twig') }}
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="/vendor/bootstrap-multiselect/js/bootstrap-multiselect.js"></script>
+    <script src="/js/admin/user/edit.js"></script>
+{% endblock %}
+{% block stylesheets %}
+    <link href="/vendor/bootstrap-multiselect/css/bootstrap-multiselect.css" rel="stylesheet">
+{% endblock %}

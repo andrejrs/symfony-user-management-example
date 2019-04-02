@@ -1,0 +1,18 @@
+{{ form_start(form) }}
+
+{% for child in form.children|keys %}
+    <div class="form-group">
+        {% if 'token' not in form_label(attribute(form.children,child)) %}
+            {{form_label(attribute(form.children,child)) }}
+        {% endif %}
+        {{form_widget(attribute(form.children,child), { 'attr': {'class': 'form-control'} }) }}
+    </div>
+    <br/>
+{% endfor %}
+
+{{ include('validator/form.errors.html.twig') }}
+
+<button class="btn btn-primary">{{ button_label|default('Save') }}</button>
+<a class="btn btn-info" href="{{ path('user_group_index') }}">Back to list</a>
+
+{{ form_end(form) }}

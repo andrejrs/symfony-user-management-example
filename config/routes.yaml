@@ -1,0 +1,3 @@
+admin_dashboard:
+    path: /admin/dashboard
+    controller: App\Controller\Admin\AdminController::dashboard
