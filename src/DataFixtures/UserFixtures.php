@@ -58,7 +58,7 @@ class UserFixtures extends Fixture
         $user->setEmail("test@nesto.com");
         $user->setRoles(['ROLE_USER', 'ROLE_ADMIN']);
         $user->setPassword(
-            $this->passwordEncoder->encodePassword(
+            $this->_passwordEncoder->encodePassword(
                 $user,
                 'test'
             )
@@ -68,12 +68,12 @@ class UserFixtures extends Fixture
         // Create random 20 fake users
         for ($i = 1; $i <= 20; $i++) {
             $user = new User();
-            $firstname = $this->faker->firstName;
-            $lastname = $this->faker->lastName;
+            $firstname = $this->_faker->firstName;
+            $lastname = $this->_faker->lastName;
             $user->setEmail($firstname.'.'.$lastname.'@gmail.com');
             $user->setRoles(['ROLE_USER']);
             $user->setPassword(
-                $this->passwordEncoder->encodePassword(
+                $this->_passwordEncoder->encodePassword(
                     $user,
                     'test'
                 )

@@ -1,18 +1,51 @@
-{{ form_start(form) }}
+    <div class="card mb-3">
+        <div class="card-header">
+            <div class="row">
+                <div class="col">
+                    <i class="fas fa-users"></i> 
+                    {% if user_group.id != null %}
+                    Edit 
+                    {% else %}
+                    Create a new 
+                    {% endif %}
+                    UserGroup
+                </div>
+                <div class="col">
+                    
+                </div>
+            </div>
+        </div>
+        <div id="user-group" class="card-body" data-user-group-id="{{user_group.id}}">
+            <div class="table-responsive">
+{{ form_start(form, {'attr': {'id': 'user_group_edit'}}) }}
 
-{% for child in form.children|keys %}
-    <div class="form-group">
-        {% if 'token' not in form_label(attribute(form.children,child)) %}
-            {{form_label(attribute(form.children,child)) }}
+{% for child in form.children %}
+    
+        {% if 'hidden' != child.vars.block_prefixes[1] %}
+        <div class="form-group">
+            {{form_label(child) }}
+            {{form_widget(child, { 'attr': {'class': (child.vars.errors|length) ? 'form-control is-invalid' : 'form-control'} }) }}
+            <div class="invalid-feedback">{{ (child.vars.errors|length) ? child.vars.errors[0].message}}</div>
+        </div>
+        {% else %}
+            {{form_widget(child) }}
         {% endif %}
-        {{form_widget(attribute(form.children,child), { 'attr': {'class': 'form-control'} }) }}
-    </div>
-    <br/>
+    
+
 {% endfor %}
 
-{{ include('validator/form.errors.html.twig') }}
-
-<button class="btn btn-primary">{{ button_label|default('Save') }}</button>
-<a class="btn btn-info" href="{{ path('user_group_index') }}">Back to list</a>
-
 {{ form_end(form) }}
+
+
+    </div>
+        </div>
+    <div class="card-footer small text-muted">
+        <button class="btn btn-primary" onclick="document.getElementById('user_group_edit').submit();">{{ button_label|default('Save') }}</button>
+        <a class="btn btn-info" href="{{ path('user_group_index') }}">Back to list</a>
+        {% if user_group.id != null and user_group.users.count == 0 %}
+            {{ include('admin/user_group/_delete_form.html.twig') }}
+        {% else %}
+            <button class="btn btn-secondary float-right mr-1" disabled  data-toggle="tooltip" data-placement="top" title="Tooltip on top"><i class="far fa-trash-alt"></i></button>
+        {% endif %}
+    </div>
+</div>

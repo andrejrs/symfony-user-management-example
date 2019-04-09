@@ -1,0 +1,30 @@
+        <div class="card mb-3">
+        <div class="card-header">
+            <div class="row">
+                <div class="col">
+                    <i class="fas fa-users"></i> Users in the group
+                </div>
+                <div class="col">
+                    
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+
+    <ul class="list-group users">
+        {% for user in users %}
+            <li class="list-group-item">
+                <i class="fas fa-user-circle fa-fw"></i><a href="/admin/user/{{ user.id }}/edit">{{ user.email }}</a>
+                <button class="btn btn-danger float-right removeUserFromGroup" data-user-id="{{ user.id }}"><i class="far fa-trash-alt"></i></button>
+            </li>
+        {% else %}
+
+                no users found
+
+        {% endfor %}
+    </ul>
+
+        </div>
+        </div>
+</div>

@@ -8,6 +8,8 @@ use Knp\Component\Pager\PaginatorInterface;
 use Knp\Bundle\PaginatorBundle\Pagination\SlidingPagination;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 
 /**
  * The User business logic 
@@ -47,6 +49,31 @@ final class UserService
     }
 
     /**
+     * Undocumented function
+     *
+     * @param [type] $users
+     * @return void
+     */
+    public function normalize($users)
+    {
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        return $serializer->normalize(
+            $users,
+            null,
+            [
+                'attributes' => [
+                    'id',
+                    'email',
+                    'roles',
+                    'groups' => [
+                        'id', 'name'
+                    ]
+                ]
+            ]
+        );
+    }
+
+    /**
      * Method to convert string to array
      * Example: 1,2,3 to [1,2,3]
      *
@@ -62,7 +89,7 @@ final class UserService
      * Get User entity by the user ID
      *
      * @param  integer $userId User identificatior
-     * @return User   User entity object
+     * @return User    User entity object
      */
     public function getUser(int $userId): User
     {
@@ -72,7 +99,7 @@ final class UserService
     /**
      * Getting pagination of all users by page
      *
-     * @param  Integer $page Page number
+     * @param  Integer           $page Page number
      * @return SlidingPagination Pagination of all users
      */
     public function getUsersByPage(Int $page = 1, String $emailFilter = ""): SlidingPagination

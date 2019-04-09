@@ -74,7 +74,14 @@ Password: test
 * A "fake" data generator used to load test data into a database are located in src/DataFixtures
 
 ## Versioning
-Version 1.0.0 - The first commit of application
+Version 1.0.1
+* Added the ExceptionController that handles exception in relation to the end point of app (Web and REST API).
+* Added two new actions in API UserController (Add and remove user from a group).
+* The button for removing the UserGroup is disabled if the users are in the group, otherwise the button is active.
+* Added a list of users that are in group on UserGroup edit page (The administrator can remove users from the group).
+
+Version 1.0.0
+* The first commit of application
 
 ## Screenshots
 ![alt tag](https://raw.githubusercontent.com/andrejrs/symfony-user-management-example/master/screenshots/1.png)

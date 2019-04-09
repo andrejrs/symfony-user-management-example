@@ -3,16 +3,23 @@
 {% block title %}Edit UserGroup{% endblock %}
 
 {% block body %}
-    <h1>Edit UserGroup</h1>
+    <!-- Breadcrumbs-->
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="#">User Group</a>
+        </li>
+        <li class="breadcrumb-item active">Edit</li>
+    </ol>
 
     {{ include('admin/user_group/_form.html.twig', {'button_label': 'Update'}) }}
 
-    {{ include('admin/user_group/_delete_form.html.twig') }}
+    {{ include('admin/user_group/_users_list.html.twig', {'users': user_group.users}) }}
+
 {% endblock %}
 
 {% block javascripts %}
     <script src="/vendor/bootstrap-multiselect/js/bootstrap-multiselect.js"></script>
-    <script src="/js/admin/user/edit.js"></script>
+    <script src="/js/admin/user-group/edit.js"></script>
 {% endblock %}
 {% block stylesheets %}
     <link href="/vendor/bootstrap-multiselect/css/bootstrap-multiselect.css" rel="stylesheet">

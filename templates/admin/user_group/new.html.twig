@@ -3,7 +3,13 @@
 {% block title %}New UserGroup{% endblock %}
 
 {% block body %}
-    <h1>Create new UserGroup</h1>
+    <!-- Breadcrumbs-->
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="#">User Group</a>
+        </li>
+        <li class="breadcrumb-item active">New</li>
+    </ol>
 
     {{ include('admin/user_group/_form.html.twig') }}
 

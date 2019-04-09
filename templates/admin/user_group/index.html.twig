@@ -31,7 +31,8 @@
             <tr>
                 <th>Id</th>
                 <th>Name</th>
-                <th>actions</th>
+                <th>Users No.</th>
+                <th class="text-right">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -39,9 +40,14 @@
             <tr>
                 <td>{{ user_group.id }}</td>
                 <td>{{ user_group.name }}</td>
+                <td>{{ user_group.users.count }}</td>
                 <td>
                     <a class="btn btn-info float-right" href="{{ path('user_group_edit', {'id': user_group.id}) }}"><i class="fas fa-pencil-alt"></i></a>
-                    {{ include('admin/user_group/_delete_form.html.twig') }}
+                    {% if user_group.users.count == 0 %}
+                        {{ include('admin/user_group/_delete_form.html.twig') }}
+                    {% else %}
+                        <button class="btn btn-secondary float-right mr-1" disabled  data-toggle="tooltip" data-placement="top" title="The group is not empty."><i class="far fa-trash-alt"></i></button>
+                    {% endif %}
                 </td>
             </tr>
         {% else %}
@@ -56,4 +62,8 @@
         </div>
     <div class="card-footer small text-muted">{{ knp_pagination_render(user_groups) }}</div>
 </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="/js/admin/user-group/index.js"></script>
 {% endblock %}
