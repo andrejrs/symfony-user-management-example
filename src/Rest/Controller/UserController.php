@@ -157,7 +157,7 @@ class UserController extends FOSRestController
      * @param  UserGroup $UserGroup Represents an User Group resource.
      * @return View
      * 
-     * @Rest\Put("/users/{id}/add-group/{id_user_group}")
+     * @Rest\Put("/users/{id}/groups/{id_user_group}")
      * @Entity("UserGroup", expr="repository.find(id_user_group)")
      */
     public function addGroupUser(User $user, UserGroup $UserGroup): View
@@ -177,7 +177,7 @@ class UserController extends FOSRestController
      * @param  UserGroup $UserGroup Represents an User Group resource.
      * @return View
      * 
-     * @Rest\Put("/users/{id}/remove-group/{id_user_group}")
+     * @Rest\Delete("/users/{id}/groups/{id_user_group}")
      * @Entity("UserGroup", expr="repository.find(id_user_group)")
      */
     public function removeGroupUser(User $user, UserGroup $UserGroup): View
